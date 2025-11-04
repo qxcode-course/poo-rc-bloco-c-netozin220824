@@ -1,0 +1,24 @@
+{
+    "patches": [
+        {
+            "label": "2025-11-04_14-25-04",
+            "content": "@@ -196,9 +196,9 @@\n ass \n-M\n+m\n erca\n@@ -209,207 +209,38 @@\n     \n-def __init__(self,n_caixas: int):%0A        self.caixas: list%5BCliente %7C None%5D = %5B%5D%0A        self.fila: list%5BCliente%5D = %5B%5D%0A        for i in range(n_caixas):%0A            self.caixas.append (None)%0A            \n+self.caixas: list%5BCliente %7C None%5D%0A\n",
+            "lines": "9"
+        },
+        {
+            "label": "2025-11-04_14-32-06",
+            "content": "@@ -404,418 +404,12 @@\n     \n-def toString(self):%0A        self.string_caixas:str = %22Caixas: %5B%22%0A        for elemento in range(len(self.caixas)):%0A            if(self.caixas%5Belemento%5D != None):%0A                self.string_caixas += f'%7Bself.caixas%5Belemento%5D%7D'%0A            else:%0A                self.string_caixas += %22-----%22%0A            if(elemento %3C len(self.caixas)-1):%0A                self.string_caixas += %22,%22%0A        self.string_caixas += %22%5D%5Cn%22\n+        \n",
+            "lines": "14"
+        },
+        {
+            "label": "2025-11-04_14-55-17",
+            "content": "@@ -815,337 +815,7 @@\n = %22%5D\n-%22%0A        self.string_fila:str = %22Fila: %5B%22%0A        for elemento in range(len(self.fila)):%0A            self.string_fila += f%22%7Bself.fila%5Belemento%5D.getNome()%7D%22%0A            if(elemento %3C len(self.fila)-1):%0A                self.string_fila += %22,%22%0A        self.string_fila = %22%5D%5Cn%22%0A        return f%22%7Bself.string_caixas%7D%5Cn%7Bself.string_fila%7D\n+%5Cn\n %22\n",
+            "lines": "23"
+        },
+        {
+            "label": "2025-11-04_15-06-01",
+            "content": "class Cliente:\n    def __init__(self,nome: str):\n        self.__nome: str = nome\n    def getNome(self):\n        return self.__nome\n    def toString(self):\n        return f\"Nome: {self.__nome}\"\nclass Mercado:\n    def __init__(self,n_caixas: int):\n        self.caixas: list[Cliente | None] = []\n        self.fila: list[Cliente] = []\n        for i in range(n_caixas):\n            self.caixas.append (None)\n    def toString(self):\n        self.string_caixas:str = \"Caixas: [\"\n        for elemento in range(len(self.caixas)):\n            if(self.caixas[elemento] != None):\n                self.string_caixas += f'{self.caixas[elemento]}'\n            else:\n                self.string_caixas += \"-----\"\n            if(elemento < len(self.caixas)-1):\n                self.string_caixas += \",\"\n        self.string_caixas += \"]\"\n        self.string_fila:str = \"Fila: [\"\n        for elemento in range(len(self.fila)):\n            self.string_fila += f\"{self.fila[elemento].getNome()}\"\n            if(elemento < len(self.fila)-1):\n                self.string_fila += \",\"\n        self.string_fila = \"]\\n\"\n        return f\"{self.string_caixas}\\n{self.string_fila}\"",
+            "lines": "30"
+        }
+    ]
+}
