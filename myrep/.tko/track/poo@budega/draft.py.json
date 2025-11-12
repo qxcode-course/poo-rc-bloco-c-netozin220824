@@ -17,8 +17,28 @@
         },
         {
             "label": "2025-11-04_15-06-01",
-            "content": "class Cliente:\n    def __init__(self,nome: str):\n        self.__nome: str = nome\n    def getNome(self):\n        return self.__nome\n    def toString(self):\n        return f\"Nome: {self.__nome}\"\nclass Mercado:\n    def __init__(self,n_caixas: int):\n        self.caixas: list[Cliente | None] = []\n        self.fila: list[Cliente] = []\n        for i in range(n_caixas):\n            self.caixas.append (None)\n    def toString(self):\n        self.string_caixas:str = \"Caixas: [\"\n        for elemento in range(len(self.caixas)):\n            if(self.caixas[elemento] != None):\n                self.string_caixas += f'{self.caixas[elemento]}'\n            else:\n                self.string_caixas += \"-----\"\n            if(elemento < len(self.caixas)-1):\n                self.string_caixas += \",\"\n        self.string_caixas += \"]\"\n        self.string_fila:str = \"Fila: [\"\n        for elemento in range(len(self.fila)):\n            self.string_fila += f\"{self.fila[elemento].getNome()}\"\n            if(elemento < len(self.fila)-1):\n                self.string_fila += \",\"\n        self.string_fila = \"]\\n\"\n        return f\"{self.string_caixas}\\n{self.string_fila}\"",
+            "content": "@@ -1144,13 +1144,8 @@\n g_fila%7D%22\n-%0A    \n",
             "lines": "30"
+        },
+        {
+            "label": "2025-11-12_13-36-23",
+            "content": "@@ -408,28 +408,749 @@\n def toString(self):%0A        \n+self.string_caixas:str = %22Caixas: %5B%22%0A        for elemento in range(len(self.caixas)):%0A            if(self.caixas%5Belemento%5D != None):%0A                self.string_caixas += f'%7Bself.caixas%5Belemento%5D%7D'%0A            else:%0A                self.string_caixas += %22-----%22%0A            if(elemento %3C len(self.caixas)-1):%0A                self.string_caixas += %22,%22%0A        self.string_caixas += %22%5D%22%0A        self.string_fila:str = %22Fila: %5B%22%0A        for elemento in range(len(self.fila)):%0A            self.string_fila += f%22%7Bself.fila%5Belemento%5D.getNome()%7D%22%0A            if(elemento %3C len(self.fila)-1):%0A                self.string_fila += %22,%22%0A        self.string_fila = %22%5D%5Cn%22%0A        return f%22%7Bself.string_caixas%7D%5Cn%7Bself.string_fila%7D%22%0A    \n",
+            "lines": "31"
+        },
+        {
+            "label": "2025-11-12_13-40-23",
+            "content": "@@ -1,20 +1,21 @@\n class \n-Person\n+Cliente\n :%0A    de\n@@ -124,39 +124,40 @@\n .__nome%0A    def \n-__str__\n+toString\n (self):%0A        \n@@ -261,351 +261,113 @@\n aixa\n- = %5BNone for _ in range(n_caixas)%5D%0A        self.fila = %5B%5D%0A    def __str__(self):%0A        caixas = ', '.join(str(cliente) if cliente is not None else '-----' for cliente in self.caixa)%0A        espera = ', '.join(str(cliente) for cliente in self.fila)%0A        return f'Caixas: %5B%7Bcaixas%7D%5D%5CnEspera: %5B%7Bespera%7D%5D'%0A    def arrive(self,person:Person):%0A\n+s: list%5BCliente %7C None%5D = %5B%5D%0A        self.fila: list%5BCliente%5D = %5B%5D%0A        for i in range(n_caixas):%0A    \n     \n@@ -379,26 +379,27 @@\n elf.\n-fila\n+caixas\n .append\n-(pers\n+ (N\n on\n+e\n )%0A  \n@@ -408,113 +408,23 @@\n def \n-call(self,index:int):%0A        if not self.fila:%0A            print('fail:sem clientes')%0A            return\n+toString(self):\n %0A   \n",
+            "lines": "15"
+        },
+        {
+            "label": "2025-11-12_13-57-27",
+            "content": "@@ -757,243 +757,4 @@\n     \n-if index %3C0 or index %3E= len(self.caixa):%0A            print('fail:caixa inexistente')%0A        if self.caixa%5Bindex%5D is not None:%0A            print('fail:caixa ocupado')%0A            return%0A        self.caixa%5Bindex%5D = self.fila.pop(0)%0A        \n",
+            "lines": "22"
+        },
+        {
+            "label": "2025-11-12_14-02-15",
+            "content": "class Person:\n    def __init__(self,nome: str):\n        self.__nome: str = nome\n    def getNome(self):\n        return self.__nome\n    def __str__(self):\n        return f\"Nome: {self.__nome}\"\nclass Mercado:\n    def __init__(self,n_caixas: int):\n        self.caixa = [None for _ in range(n_caixas)]\n        self.fila = []\n    def __str__(self):\n        caixas = ', '.join(str(cliente) if cliente is not None else '-----' for cliente in self.caixa)\n        espera = ', '.join(str(cliente) for cliente in self.fila)\n        return f'Caixas: [{caixas}]\\nEspera: [{espera}]'\n    def arrive(self,person:Person):\n        self.fila.append(person)\n    def call(self,index:int):\n        if not self.fila:\n            print('fail:sem clientes')\n            return\n        if index <0 or index >= len(self.caixa):\n            print('fail:caixa inexistente')\n        if self.caixa[index] is not None:\n            print('fail:caixa ocupado')\n            return\n        self.caixa[index] = self.fila.pop(0)\n        ",
+            "lines": "28"
         }
     ]
 }
