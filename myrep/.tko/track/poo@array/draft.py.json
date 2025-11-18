@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2025-11-16_07-22-57",
+            "content": "@@ -739,278 +739,4 @@\n int)\n-%0A    lista_int.insert(0, 99)%0A    print('insert(0, 99):', lista_int)%0A    valor = lista_int.pop(0)%0A    print('pop(0) -%3E', valor, lista_int)%0A    lista_int.insert(2, 42)%0A    print('insert(2, 42):', lista_int)%0A    valor = lista_int.pop(2)%0A    print('pop(2) -%3E', valor, lista_int)\n",
+            "lines": "20"
+        },
+        {
+            "label": "2025-11-16_07-40-26",
+            "content": "class Foo:\n    def __init__(self, value: int):\n        self.value = value\n\n    def display(self):\n        print(f\"Foo{self.value}\")\ndef main():\n    lista_vazia_int: list[int] = []\n    lista_vazia_obj: list[Foo] = []\n    lista_int: list[int] = [1, 2, 3, 4, 5]\n    lista_obj: list[Foo] = [Foo(1), Foo(2), Foo(3), Foo(4), Foo(5)]\n    print(\"Lista vazia de inteiros:\", lista_vazia_int)\n    print(\"Lista vazia de objetos:\", ', '.join(str(x) for x in lista_vazia_obj))\n    print(\"Lista de inteiros:\", lista_int)\n    print(\"Lista de objetos:\", ', '.join(str(x) for x in lista_obj))\n    print('len(lista_int):', len(lista_int))\n    lista_int.append(6)\n    print(\"append(6):\", lista_int)\n    valor=lista_int.pop()\n    print(\"pop():\", valor, lista_int)\n    lista_int.insert(0, 99)\n    print('insert(0, 99):', lista_int)\n    valor = lista_int.pop(0)\n    print('pop(0) ->', valor, lista_int)\n    lista_int.insert(2, 42)\n    print('insert(2, 42):', lista_int)\n    valor = lista_int.pop(2)\n    print('pop(2) ->', valor, lista_int)",
+            "lines": "28"
+        }
+    ]
+}
