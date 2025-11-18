@@ -63,8 +63,6 @@ def main():
         parts = line.split()
         cmd = parts[0]
 
-        # imprime exatamente como o gabarito: com '$' antes
-        # ex: "init 2" -> "$init 2"
         print('$' + line)
 
         if cmd == 'end':

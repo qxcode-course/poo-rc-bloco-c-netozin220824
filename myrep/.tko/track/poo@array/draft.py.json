@@ -7,8 +7,38 @@
         },
         {
             "label": "2025-11-16_07-40-26",
-            "content": "class Foo:\n    def __init__(self, value: int):\n        self.value = value\n\n    def display(self):\n        print(f\"Foo{self.value}\")\ndef main():\n    lista_vazia_int: list[int] = []\n    lista_vazia_obj: list[Foo] = []\n    lista_int: list[int] = [1, 2, 3, 4, 5]\n    lista_obj: list[Foo] = [Foo(1), Foo(2), Foo(3), Foo(4), Foo(5)]\n    print(\"Lista vazia de inteiros:\", lista_vazia_int)\n    print(\"Lista vazia de objetos:\", ', '.join(str(x) for x in lista_vazia_obj))\n    print(\"Lista de inteiros:\", lista_int)\n    print(\"Lista de objetos:\", ', '.join(str(x) for x in lista_obj))\n    print('len(lista_int):', len(lista_int))\n    lista_int.append(6)\n    print(\"append(6):\", lista_int)\n    valor=lista_int.pop()\n    print(\"pop():\", valor, lista_int)\n    lista_int.insert(0, 99)\n    print('insert(0, 99):', lista_int)\n    valor = lista_int.pop(0)\n    print('pop(0) ->', valor, lista_int)\n    lista_int.insert(2, 42)\n    print('insert(2, 42):', lista_int)\n    valor = lista_int.pop(2)\n    print('pop(2) ->', valor, lista_int)",
+            "content": "@@ -1013,176 +1013,4 @@\n int)\n-%0A    print('-'.join(str(x) for x in lista_int))%0A    n=5%0A    sequencia = list(range(0,n+1))%0A    print(%22seguencia%22, sequencia)%0A    print(%22acesso ao indice 2:%22, lista_int%5B2%5D)%0A\n",
             "lines": "28"
+        },
+        {
+            "label": "2025-11-18_13-33-26",
+            "content": "@@ -1185,495 +1185,4 @@\n 2%5D)%0A\n-    print(%22Percorrendo com for-range:%22)%0A    for i in range(len(lista_int)):%0A        print(valor,end=' ')%0A    print()%0A    print(%22Percorrendo com for-indexado:%22)%0A    for i in range(len(lista_int)):%0A        print(lista_int%5Bi%5D, end=' ')%0A    print()%0A    x=2%0A    encontrado = False%0A    for valor in lista_int:%0A        if valor == x:%0A            encontrado = True%0A    print(f%22encontrado %7Bx%7D:%22, encontrado)%0A    pos = lista_int.index(x) if x in lista_int else -1%0A    print(f%22posicao de %7Bx%7D: %7Bpos%7D%22)%0A%0A\n",
+            "lines": "33"
+        },
+        {
+            "label": "2025-11-18_13-43-43",
+            "content": "@@ -1670,15 +1670,10 @@\n  %7Bpos%7D%22)\n-%0A    \n %0A%0A\n",
+            "lines": "50"
+        },
+        {
+            "label": "2025-11-18_13-44-05",
+            "content": "@@ -1679,686 +1679,6 @@\n     \n-pares = %5Bvalor for valor in lista_int if valor %25 2 == 0%5D%0A    print(%22pares:%22, pares)%0A    quadrados = %5Bvalor ** 2 for valor in lista_int%5D%0A    print(%22quadrados:%22, quadrados)%0A    if x in lista_int:%0A        lista_int.remove(x)%0A        print(f%22removendo %7Bx%7D (primeira ocorrencia %7Bx%7D)%22, lista_int)%0A    lista_int = %5Bvalor for valor in lista_int if valor != x%5D%0A    print(f%22removendo todas as ocorrencias de %7Bx%7D:%22, lista_int)%0A    lista_int = %5B5, 3, 1, 8, 2%5D%0A    lista_int.sort()%0A    print(%22lista ordenada:%22, lista_int)%0A    print(%22Metodos em lista de objetos:%22)%0A    print(%22exibindo cada foo:%22)%0A    for foo in lista_obj:%0A        foo.display()%0A    print('-'.join(str(f) for f in lista_obj))%0A    \n+%0A%0A\n",
+            "lines": "51"
+        },
+        {
+            "label": "2025-11-18_13-59-42",
+            "content": "@@ -2361,46 +2361,4 @@\n     \n-if __name__ == '__main__':%0A        main()%0A\n",
+            "lines": "67"
+        },
+        {
+            "label": "2025-11-18_14-00-35",
+            "content": "@@ -2353,16 +2353,20 @@\n a_obj))%0A\n+    \n if __nam\n@@ -2384,16 +2384,20 @@\n ain__':%0A\n+    \n     main\n",
+            "lines": "68"
+        },
+        {
+            "label": "2025-11-18_14-01-00",
+            "content": "class Foo:\n    def __init__(self, value: int):\n        self.value = value\n\n    def display(self):\n        print(f\"Foo{self.value}\")\ndef main():\n    lista_vazia_int: list[int] = []\n    lista_vazia_obj: list[Foo] = []\n    lista_int: list[int] = [1, 2, 3, 4, 5]\n    lista_obj: list[Foo] = [Foo(1), Foo(2), Foo(3), Foo(4), Foo(5)]\n    print(\"Lista vazia de inteiros:\", lista_vazia_int)\n    print(\"Lista vazia de objetos:\", ', '.join(str(x) for x in lista_vazia_obj))\n    print(\"Lista de inteiros:\", lista_int)\n    print(\"Lista de objetos:\", ', '.join(str(x) for x in lista_obj))\n    print('len(lista_int):', len(lista_int))\n    lista_int.append(6)\n    print(\"append(6):\", lista_int)\n    valor=lista_int.pop()\n    print(\"pop():\", valor, lista_int)\n    lista_int.insert(0, 99)\n    print('insert(0, 99):', lista_int)\n    valor = lista_int.pop(0)\n    print('pop(0) ->', valor, lista_int)\n    lista_int.insert(2, 42)\n    print('insert(2, 42):', lista_int)\n    valor = lista_int.pop(2)\n    print('pop(2) ->', valor, lista_int)\n    print('-'.join(str(x) for x in lista_int))\n    n=5\n    sequencia = list(range(0,n+1))\n    print(\"seguencia\", sequencia)\n    print(\"acesso ao indice 2:\", lista_int[2])\n    print(\"Percorrendo com for-range:\")\n    for i in range(len(lista_int)):\n        print(valor,end=' ')\n    print()\n    print(\"Percorrendo com for-indexado:\")\n    for i in range(len(lista_int)):\n        print(lista_int[i], end=' ')\n    print()\n    x=2\n    encontrado = False\n    for valor in lista_int:\n        if valor == x:\n            encontrado = True\n    print(f\"encontrado {x}:\", encontrado)\n    pos = lista_int.index(x) if x in lista_int else -1\n    print(f\"posicao de {x}: {pos}\")\n    pares = [valor for valor in lista_int if valor % 2 == 0]\n    print(\"pares:\", pares)\n    quadrados = [valor ** 2 for valor in lista_int]\n    print(\"quadrados:\", quadrados)\n    if x in lista_int:\n        lista_int.remove(x)\n        print(f\"removendo {x} (primeira ocorrencia {x})\", lista_int)\n    lista_int = [valor for valor in lista_int if valor != x]\n    print(f\"removendo todas as ocorrencias de {x}:\", lista_int)\n    lista_int = [5, 3, 1, 8, 2]\n    lista_int.sort()\n    print(\"lista ordenada:\", lista_int)\n    print(\"Metodos em lista de objetos:\")\n    print(\"exibindo cada foo:\")\n    for foo in lista_obj:\n        foo.display()\n    print('-'.join(str(f) for f in lista_obj))\nif __name__ == '__main__':\n    main()\n",
+            "lines": "68"
         }
     ]
 }
