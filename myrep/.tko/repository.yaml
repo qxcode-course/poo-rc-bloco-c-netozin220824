@@ -12,17 +12,20 @@ sources:
   type: clone
   branch: master
   cache_path: ''
-  cache_timestamp: '2025-11-19 14:13:22'
+  cache_timestamp: '2025-11-19 15:39:24'
   filters:
   - listas
 expanded:
 - poo@campanha-principal
 - poo@bloco_c-listas
 tasks:
+  poo@array: '{rate:100, alone:10}'
   poo@budega: '{rate:100, human:sim, iagen:nao, guide:instrusoes, other:nao, alone:10,
     study:150}'
   poo@lapiseira: '{rate:100, human:monitor, iagen:nao, guide:nao, other:nao, alone:10,
     study:200}'
+  poo@cinema: '{rate:100, human:monitor, iagen:nao, guide:aula, other:material_de_estudo,
+    alone:10, study:120}'
 flags:
   quests: 0
   tracks: 0
@@ -30,4 +33,4 @@ flags:
   graph: 1
   xray: 0
 lang: py
-selected: poo@cinema
+selected: poo@pula-pula

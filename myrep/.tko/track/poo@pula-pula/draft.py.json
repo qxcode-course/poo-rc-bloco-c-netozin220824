@@ -1,0 +1,29 @@
+{
+    "patches": [
+        {
+            "label": "2025-11-19_16-36-33",
+            "content": "@@ -1,15 +1,15 @@\n class \n-C\n+c\n rian%C3%A7a:%0A\n@@ -350,32 +350,32 @@\n  __str__(self):%0A\n+\n         return f\n@@ -408,466 +408,4 @@\n de%7D%22\n-%0Aclass Pulapula:%0A    def __init__(self):%0A        self.__pulando:list%5BCrian%C3%A7a %7C None%5D = %5B%5D%0A        self.__espera:list%5BCrian%C3%A7a %7C None%5D = %5B%5D%0A    def arrive(self, nome:str, idade:int):%0A        crian%C3%A7a = Crian%C3%A7a(nome, idade)%0A        self.__espera.insert(0, crian%C3%A7a)%0A    def entrar(self):%0A        if not self.__espera:%0A           print(f%22fila vazia%22)%0A        self.__pulando.insert(0, self.__espera%5Blen(self.__espera)-1%5D)%0A        self.__espera.pop(len(self.__espera)-1)\n",
+            "lines": "14"
+        },
+        {
+            "label": "2025-11-19_17-25-36",
+            "content": "@@ -870,190 +870,4 @@\n )-1)\n-%0A    def remove(self, nome:str):%0A        for i, Crian%C3%A7a in enumerate(self.__pulando):%0A            if Crian%C3%A7a.getNome()==nome:%0A                self.__pulando.pop(i)%0A                return\n",
+            "lines": "26"
+        },
+        {
+            "label": "2025-11-19_17-34-19",
+            "content": "@@ -1052,21 +1052,8 @@\n   return\n-%0A            \n",
+            "lines": "31"
+        },
+        {
+            "label": "2025-11-19_17-41-38",
+            "content": "@@ -1065,21 +1065,8 @@\n         \n-%0A            \n",
+            "lines": "32"
+        },
+        {
+            "label": "2025-11-19_17-51-22",
+            "content": "class Crian\u00e7a:\n    def __init__(self, nome:str, idade:int):\n        self.__nome = nome\n        self.__idade = idade\n    def getIdade(self):\n        return self.__idade\n    def getNome(self):\n        return self.__nome\n    def setIdade(self, idade:int):\n        self.__idade = idade\n    def setNome(self, nome:str):\n        self.__nome = nome\n    def __str__(self):\n        return f\"{self.__nome}:{self.__idade}\"\nclass Pulapula:\n    def __init__(self):\n        self.__pulando:list[Crian\u00e7a | None] = []\n        self.__espera:list[Crian\u00e7a | None] = []\n    def arrive(self, nome:str, idade:int):\n        crian\u00e7a = Crian\u00e7a(nome, idade)\n        self.__espera.insert(0, crian\u00e7a)\n    def entrar(self):\n        if not self.__espera:\n           print(f\"fila vazia\")\n        self.__pulando.insert(0, self.__espera[len(self.__espera)-1])\n        self.__espera.pop(len(self.__espera)-1)\n    def remove(self, nome:str):\n        for i, Crian\u00e7a in enumerate(self.__pulando):\n            if Crian\u00e7a.getNome()==nome:\n                self.__pulando.pop(i)\n                return\n            \n            ",
+            "lines": "33"
+        }
+    ]
+}
