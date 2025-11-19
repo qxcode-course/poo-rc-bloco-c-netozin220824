@@ -7,8 +7,28 @@
         },
         {
             "label": "2025-11-19_06-01-47",
-            "content": "class Client:\n    def __init__(self,id:str ,phone:int):\n        self.__id:str = id\n        self.__phone:int = phone\n    def getPhone(self):\n        return self.__phone\n    def getid(self):\n        return self.__id\n    def setPhone(self,phone:int):\n        self.__phone = phone\n    def setid(self,id:str):\n        self.__id = id\n    def __str__(self):\n        return f\"{self.__id}:{self.__phone}\"\nclass Cinema:\n    def __init__(self,capacidade:int):\n        self.__seats= [None]*capacidade\n        self.__search= [None]*capacidade\n        self.__verifyindex=capacidade\n    def__str_(self):\n    print(\"[\",end=\"\")\n    ]\")",
+            "content": "@@ -608,13 +608,11 @@\n %22%22)%0A    \n-%0A    \n+%5D%22)\n",
             "lines": "22"
+        },
+        {
+            "label": "2025-11-19_14-19-30",
+            "content": "@@ -462,17 +462,16 @@\n .__seats\n- \n = %5BNone%5D\n@@ -503,17 +503,16 @@\n __search\n- \n = %5BNone%5D\n@@ -564,32 +564,30 @@\n dade%0A    def\n- \n __str_\n-_\n (self):%0A    \n@@ -582,28 +582,24 @@\n (self):%0A    \n- \n-   \n print(%22%5B%22,en\n@@ -612,292 +612,9 @@\n     \n-  \n-  ky=%22 %22.join(%22-%22 if i is None else str(i)for i in self.__seats)%0A        ky+=%22%5D%22%0A        return ky%0A    %0A%0A    def reserve(self, id: str, phone:int, index:int):%0A        if index %3C0 or index%3E= self.__verifyIndex:%0A            print(%22fail: cadeira nao existe%22)%0A            return False%0A    %0A\n+%0A    \n",
+            "lines": "23"
+        },
+        {
+            "label": "2025-11-19_14-34-58",
+            "content": "@@ -903,359 +903,8 @@\n lse%0A\n-        elif self.__seats%5Bindex%5D is not None:%0A            print(%22fail: cadeira ja esta ocupada%22)%0A            return False%0A        elif id in self.__search:%0A            print(%22fail: cliente ja esta no cinema%22)%0A        client = Client(id, phone)%0A        self.__seats%5Bindex%5D = client%0A        self.__search.append(client.geti%0A        d())%0A        return %0A\n     \n",
+            "lines": "31"
+        },
+        {
+            "label": "2025-11-19_14-41-38",
+            "content": "@@ -551,19 +551,17 @@\n ifyindex\n- = \n+=\n capacida\n@@ -1220,16 +1220,25 @@\n ent.geti\n+%0A        \n d())%0A   \n",
+            "lines": "41"
+        },
+        {
+            "label": "2025-11-19_14-47-44",
+            "content": "class Client:\n    def __init__(self,id:str ,phone:int):\n        self.__id:str = id\n        self.__phone:int = phone\n    def getPhone(self):\n        return self.__phone\n    def getid(self):\n        return self.__id\n    def setPhone(self,phone:int):\n        self.__phone = phone\n    def setid(self,id:str):\n        self.__id = id\n    def __str__(self):\n        return f\"{self.__id}:{self.__phone}\"\nclass Cinema:\n    def __init__(self,capacidade:int):\n        self.__seats = [None]*capacidade\n        self.__search = [None]*capacidade\n        self.__verifyindex = capacidade\n    def __str__(self):\n        print(\"[\",end=\"\")\n        ky=\" \".join(\"-\" if i is None else str(i)for i in self.__seats)\n        ky+=\"]\"\n        return ky\n    \n\n    def reserve(self, id: str, phone:int, index:int):\n        if index <0 or index>= self.__verifyIndex:\n            print(\"fail: cadeira nao existe\")\n            return False\n        elif self.__seats[index] is not None:\n            print(\"fail: cadeira ja esta ocupada\")\n            return False\n        elif id in self.__search:\n            print(\"fail: cliente ja esta no cinema\")\n        client = Client(id, phone)\n        self.__seats[index] = client\n        self.__search.append(client.getid())\n        return \n    \n",
+            "lines": "40"
         }
     ]
 }

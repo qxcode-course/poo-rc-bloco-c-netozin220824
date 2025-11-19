@@ -27,6 +27,7 @@ class Lapiseira:
         self.__calibre = calibre
         self.__lead = lead
         self.__barrel = []
+    
     def hasGrafite(self) -> bool:
         return self.__lead is not None
     def insert(self, grafite: Grafite):
@@ -63,7 +64,7 @@ class Lapiseira:
             print("fail: folha incompleta")
             self.__lead.setTamanho(10)
             return
-        self.__lead.setTamanho(self.__lead.get_tamanho() - k)
+        self.__lead.setTamanho(self.__lead.get_Tamanho() - k)
     def __str__(self):
         lead = "[]" if self.__lead is None else str(self.__lead)
         ans = f"calibre: {self.__calibre}, bico: {lead}, tambor: <"
