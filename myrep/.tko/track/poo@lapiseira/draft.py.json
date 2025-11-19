@@ -1,0 +1,129 @@
+{
+    "patches": [
+        {
+            "label": "2025-11-19_02-07-53",
+            "content": "@@ -55,23 +55,20 @@\n eza:str,\n-tamanho\n+size\n :int):%0A \n@@ -159,29 +159,23 @@\n f.__\n-tamanho:int = tamanho\n+size:int = size\n %0A   \n",
+            "lines": "6"
+        },
+        {
+            "label": "2025-11-19_02-33-21",
+            "content": "@@ -196,382 +196,12 @@\n sage\n-PerSheet(self):%0A        if self.__dureza == %22HB%22: %0A            return 1%0A        if self.__dureza == %222B%22:%0A            return 2%0A        if self.__dureza == %224B%22:%0A            return 4%0A        else:%0A            return 6%0A    def setTamanho(self,tamanho:int):%0A        self.__tamanho = tamanho%0A    def _str_(self):%0A        return f%22%5B%7Bself.__calibre%7D:%7Bself.__dureza%7D:%7Bself.__tamanho%7D%5D%22\n+persheet\n",
+            "lines": "6"
+        },
+        {
+            "label": "2025-11-19_03-02-02",
+            "content": "@@ -574,175 +574,4 @@\n o%7D%5D%22\n-%0A    def get_calibre(self):%0A        return self.__calibre%0A%0A    def get_dureza(self):%0A        return self.__dureza%0A    def get_tamanho(self):%0A        return self.__tamanho%0A\n",
+            "lines": "18"
+        },
+        {
+            "label": "2025-11-19_03-09-16",
+            "content": "@@ -745,20 +745,4 @@\n nho%0A\n-class Lapiseira:\n",
+            "lines": "25"
+        },
+        {
+            "label": "2025-11-19_03-24-58",
+            "content": "@@ -624,24 +624,25 @@\n f.__calibre%0A\n+%0A\n     def get_\n@@ -741,16 +741,16 @@\n tamanho%0A\n+\n class La\n@@ -761,1482 +761,4 @@\n ira:\n-%0A    def __init__(self, calibre: float = 0, lead: Grafite %7C None = None):%0A        self.__calibre = calibre%0A        self.__lead = lead%0A        self.__barrel = %5B%5D%0A    def hasGrafite(self) -%3E bool:%0A        return self.__lead is not None%0A    def insert(self, grafite: Grafite):%0A        if self.__calibre != grafite.get_calibre():%0A            print(%22fail: calibre incompat%C3%ADvel%22)%0A            return%0A        if self.hasGrafite():%0A            print(%22fail: ja existe grafite%22)%0A            return %0A        self.__barrel.append(grafite)%0A    def pull(self):%0A        if self.__lead is not None: %0A            print(%22fail: ja existe grafite no bico%22)%0A            return%0A        if len(self.__barrel) == 0:%0A            print(%22fail: n%C3%A3o existe grafite no tambor%22)%0A            return%0A        self.__lead = self.__barrel%5B0%5D%0A        self.__barrel.pop(0)%0A    def remove(self):%0A        if not self.hasGrafite():%0A            print(%22fail: nao existe grafite%22)%0A            return %0A        self.__lead = None%0A    def write(self):%0A        if not self.hasGrafite():%0A            print(%22fail: nao existe grafite no bico%22)%0A            return%0A        if self.__lead.get_tamanho() %3C= 10:%0A            print(%22fail: tamanho insuficiente%22)%0A            return%0A        k = self.__lead.get_sagePerSheet()%0A        if self.__lead.get_tamanho() - k %3C 10:%0A            print(%22fail: folha incompleta%22)%0A            self.__lead.set_tamanho(10)%0A            return%0A        self.__lead.set_tamanho(self.__lead.get_tamanho() - k)%0A\n",
+            "lines": "26"
+        },
+        {
+            "label": "2025-11-19_04-56-22",
+            "content": "@@ -2238,300 +2238,4 @@\n  k)%0A\n-    def _str_(self):%0A        lead = %22%5B%5D%22 if self.__lead is None else str(self.__lead)%0A        ans = f%22calibre: %7Bself.__thickess%7D, bico: %7Blead%7D, tambor: %3C%22%0A        for i, p in enumerate(self.__barrel):%0A            if p is not None:%0A                ans+= str(p)%0A        ans +=%22%3E%22%0A        return ans\n",
+            "lines": "66"
+        },
+        {
+            "label": "2025-11-19_04-59-36",
+            "content": "@@ -2534,274 +2534,4 @@\n  ans\n-%0Adef main():%0A    lapiseira: Lapiseira= Lapiseira()%0A    while True:%0A        line= input()%0A        print(f%22$%7Bline%7D%22)%0A        args= line.split()%0A        if args%5B0%5D==%22end%22:%0A            break%0A        elif args%5B0%5D==%22init%22:%0A            lapiseira= Lapiseira(float(args%5B1%5D))    %0A\n",
+            "lines": "74"
+        },
+        {
+            "label": "2025-11-19_05-15-08",
+            "content": "@@ -2740,16 +2740,17 @@\n gs%5B0%5D==%22\n+i\n nit%22:%0A  \n@@ -2802,231 +2802,6 @@\n )   \n-%0A        elif args%5B0%5D==%22sho%22:%0A            print(lapiseira) %0A        elif args%5B0%5D==%22insert%22:%0A            grafite= Grafite(float(args%5B1%5D),args%5B2%5D,int(args%5B3%5D))%0A            lapiseira.insert(grafite)%0A        elif args%5B0%5D==%22remove%22\n+ \n %0A\n",
+            "lines": "84"
+        },
+        {
+            "label": "2025-11-19_05-18-30",
+            "content": "@@ -3027,192 +3027,5 @@\n ove%22\n-:%0A            lapiseira.remove()%0A        elif args%5B0%5D==%22write%22:%0A            lapiseira.write()%0A        elif args%5B0%5D==%22pull%22:%0A        else:%0A            print(%22fail: comando invalido%22)%0Amain()\n+%0A\n",
+            "lines": "90"
+        },
+        {
+            "label": "2025-11-19_05-20-03",
+            "content": "@@ -3151,37 +3151,8 @@\n l%22:%0A\n-            lapiseira.pull()%0A\n     \n",
+            "lines": "97"
+        },
+        {
+            "label": "2025-11-19_05-20-40",
+            "content": "@@ -2740,17 +2740,16 @@\n gs%5B0%5D==%22\n-i\n nit%22:%0A  \n",
+            "lines": "98"
+        },
+        {
+            "label": "2025-11-19_05-20-54",
+            "content": "@@ -3023,17 +3023,16 @@\n =%22remove\n-r\n %22:%0A     \n",
+            "lines": "98"
+        },
+        {
+            "label": "2025-11-19_05-21-22",
+            "content": "@@ -2825,17 +2825,16 @@\n 0%5D==%22sho\n-w\n %22:%0A     \n",
+            "lines": "98"
+        },
+        {
+            "label": "2025-11-19_05-21-33",
+            "content": "@@ -3024,16 +3024,17 @@\n =%22remove\n+r\n %22:%0A     \n",
+            "lines": "98"
+        },
+        {
+            "label": "2025-11-19_05-21-47",
+            "content": "@@ -492,15 +492,13 @@\n def \n-_\n _str_\n-_\n (sel\n",
+            "lines": "98"
+        },
+        {
+            "label": "2025-11-19_05-22-59",
+            "content": "@@ -2355,23 +2355,24 @@\n %7Bself.__\n-calibre\n+thickess\n %7D, bico:\n",
+            "lines": "98"
+        },
+        {
+            "label": "2025-11-19_05-27-00",
+            "content": "@@ -2236,39 +2236,37 @@\n () - k)%0A    def \n-_\n _str_\n-_\n (self):%0A        \n",
+            "lines": "98"
+        },
+        {
+            "label": "2025-11-19_05-29-51",
+            "content": "@@ -2004,16 +2004,20 @@\n .__lead.\n+get_\n sagePerS\n",
+            "lines": "98"
+        },
+        {
+            "label": "2025-11-19_05-32-14",
+            "content": "@@ -2213,16 +2213,20 @@\n .__lead.\n+get_\n tamanho(\n",
+            "lines": "98"
+        },
+        {
+            "label": "2025-11-19_05-33-03",
+            "content": "@@ -2134,25 +2134,25 @@\n .__lead.set_\n-T\n+t\n amanho(10)%0A \n@@ -2193,17 +2193,17 @@\n ead.set_\n-T\n+t\n amanho(s\n@@ -2205,36 +2205,32 @@\n nho(self.__lead.\n-get_\n tamanho() - k)%0A \n",
+            "lines": "98"
+        },
+        {
+            "label": "2025-11-19_05-36-03",
+            "content": "@@ -2046,17 +2046,17 @@\n ead.get_\n-T\n+t\n amanho()\n",
+            "lines": "98"
+        },
+        {
+            "label": "2025-11-19_05-36-37",
+            "content": "@@ -693,25 +693,25 @@\n     def get_\n-T\n+t\n amanho(self)\n",
+            "lines": "98"
+        },
+        {
+            "label": "2025-11-19_05-37-05",
+            "content": "@@ -1888,33 +1888,33 @@\n self.__lead.get_\n-T\n+t\n amanho() %3C= 10:%0A\n",
+            "lines": "98"
+        },
+        {
+            "label": "2025-11-19_05-37-25",
+            "content": "@@ -2129,32 +2129,33 @@\n  self.__lead.set\n+_\n Tamanho(10)%0A    \n@@ -2192,16 +2192,17 @@\n lead.set\n+_\n Tamanho(\n",
+            "lines": "98"
+        },
+        {
+            "label": "2025-11-19_05-38-26",
+            "content": "class Grafite:\n    def __init__(self,calibre:float,dureza:str,tamanho:int):\n        self.__calibre:float = calibre\n        self.__dureza:str = dureza\n        self.__tamanho:int = tamanho\n    def sagePerSheet(self):\n        if self.__dureza == \"HB\": \n            return 1\n        if self.__dureza == \"2B\":\n            return 2\n        if self.__dureza == \"4B\":\n            return 4\n        else:\n            return 6\n    def setTamanho(self,tamanho:int):\n        self.__tamanho = tamanho\n    def __str__(self):\n        return f\"[{self.__calibre}:{self.__dureza}:{self.__tamanho}]\"\n    def get_calibre(self):\n        return self.__calibre\n    def get_dureza(self):\n        return self.__dureza\n    def get_Tamanho(self):\n        return self.__tamanho\nclass Lapiseira:\n    def __init__(self, calibre: float = 0, lead: Grafite | None = None):\n        self.__calibre = calibre\n        self.__lead = lead\n        self.__barrel = []\n    def hasGrafite(self) -> bool:\n        return self.__lead is not None\n    def insert(self, grafite: Grafite):\n        if self.__calibre != grafite.get_calibre():\n            print(\"fail: calibre incompat\u00edvel\")\n            return\n        if self.hasGrafite():\n            print(\"fail: ja existe grafite\")\n            return \n        self.__barrel.append(grafite)\n    def pull(self):\n        if self.__lead is not None: \n            print(\"fail: ja existe grafite no bico\")\n            return\n        if len(self.__barrel) == 0:\n            print(\"fail: n\u00e3o existe grafite no tambor\")\n            return\n        self.__lead = self.__barrel[0]\n        self.__barrel.pop(0)\n    def remove(self):\n        if not self.hasGrafite():\n            print(\"fail: nao existe grafite\")\n            return \n        self.__lead = None\n    def write(self):\n        if not self.hasGrafite():\n            print(\"fail: nao existe grafite no bico\")\n            return\n        if self.__lead.get_Tamanho() <= 10:\n            print(\"fail: tamanho insuficiente\")\n            return\n        k = self.__lead.sagePerSheet()\n        if self.__lead.get_Tamanho() - k < 10:\n            print(\"fail: folha incompleta\")\n            self.__lead.setTamanho(10)\n            return\n        self.__lead.setTamanho(self.__lead.get_tamanho() - k)\n    def __str__(self):\n        lead = \"[]\" if self.__lead is None else str(self.__lead)\n        ans = f\"calibre: {self.__calibre}, bico: {lead}, tambor: <\"\n        for i, p in enumerate(self.__barrel):\n            if p is not None:\n                ans+= str(p)\n        ans +=\">\"\n        return ans\ndef main():\n    lapiseira: Lapiseira= Lapiseira()\n    while True:\n        line= input()\n        print(f\"${line}\")\n        args= line.split()\n        if args[0]==\"end\":\n            break\n        elif args[0]==\"init\":\n            lapiseira= Lapiseira(float(args[1]))   \n        elif args[0]==\"show\":\n            print(lapiseira) \n        elif args[0]==\"insert\":\n            grafite= Grafite(float(args[1]),args[2],int(args[3]))\n            lapiseira.insert(grafite)\n        elif args[0]==\"remove\":\n            lapiseira.remove()\n        elif args[0]==\"write\":\n            lapiseira.write()\n        elif args[0]==\"pull\":\n            lapiseira.pull()\n        else:\n            print(\"fail: comando invalido\")\nmain()",
+            "lines": "98"
+        }
+    ]
+}

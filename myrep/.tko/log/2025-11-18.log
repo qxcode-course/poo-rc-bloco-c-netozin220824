@@ -15,3 +15,5 @@
 2025-11-18 14:33:26, MOVE, v:1, k:poo@array, mode:PICK
 2025-11-18 14:33:27, EXEC, v:1, k:poo@array, mode:LOCK, rate:0
 2025-11-18 14:33:29, MOVE, v:1, k:poo@array, mode:BACK
+2025-11-18 21:39:04, MOVE, v:1, k:poo@array, mode:PICK
+2025-11-18 21:41:00, MOVE, v:1, k:poo@array, mode:BACK

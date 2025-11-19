@@ -1,68 +1,87 @@
-class Foo:
-    def __init__(self, value: int):
-        self.value = value
+import random
 
-    def display(self):
-        print(f"Foo{self.value}")
-def main():
-    lista_vazia_int: list[int] = []
-    lista_vazia_obj: list[Foo] = []
-    lista_int: list[int] = [1, 2, 3, 4, 5]
-    lista_obj: list[Foo] = [Foo(1), Foo(2), Foo(3), Foo(4), Foo(5)]
-    print("Lista vazia de inteiros:", lista_vazia_int)
-    print("Lista vazia de objetos:", ', '.join(str(x) for x in lista_vazia_obj))
-    print("Lista de inteiros:", lista_int)
-    print("Lista de objetos:", ', '.join(str(x) for x in lista_obj))
-    print('len(lista_int):', len(lista_int))
-    lista_int.append(6)
-    print("append(6):", lista_int)
-    valor=lista_int.pop()
-    print("pop():", valor, lista_int)
-    lista_int.insert(0, 99)
-    print('insert(0, 99):', lista_int)
-    valor = lista_int.pop(0)
-    print('pop(0) ->', valor, lista_int)
-    lista_int.insert(2, 42)
-    print('insert(2, 42):', lista_int)
-    valor = lista_int.pop(2)
-    print('pop(2) ->', valor, lista_int)
-    print('-'.join(str(x) for x in lista_int))
-    n=5
-    sequencia = list(range(0,n+1))
-    print("seguencia", sequencia)
-    print("acesso ao indice 2:", lista_int[2])
-    print("Percorrendo com for-range:")
-    for i in range(len(lista_int)):
-        print(valor,end=' ')
-    print()
-    print("Percorrendo com for-indexado:")
-    for i in range(len(lista_int)):
-        print(lista_int[i], end=' ')
-    print()
-    x=2
-    encontrado = False
-    for valor in lista_int:
-        if valor == x:
-            encontrado = True
-    print(f"encontrado {x}:", encontrado)
-    pos = lista_int.index(x) if x in lista_int else -1
-    print(f"posicao de {x}: {pos}")
-    pares = [valor for valor in lista_int if valor % 2 == 0]
-    print("pares:", pares)
-    quadrados = [valor ** 2 for valor in lista_int]
-    print("quadrados:", quadrados)
-    if x in lista_int:
-        lista_int.remove(x)
-        print(f"removendo {x} (primeira ocorrencia {x})", lista_int)
-    lista_int = [valor for valor in lista_int if valor != x]
-    print(f"removendo todas as ocorrencias de {x}:", lista_int)
-    lista_int = [5, 3, 1, 8, 2]
-    lista_int.sort()
-    print("lista ordenada:", lista_int)
-    print("Metodos em lista de objetos:")
-    print("exibindo cada foo:")
-    for foo in lista_obj:
-        foo.display()
-    print('-'.join(str(f) for f in lista_obj))
-if __name__ == '__main__':
-    main()
+class Foo:
+    def __init__(self, x: int):
+        self.x = x
+
+    def __str__(self):
+        return f'Foo({self.x})'
+
+    def __eq__(self, other):
+        if isinstance(other, Foo):
+            return self.x == other.x
+        return False
+
+lista_vazia: list[int] = []
+lista_vazia_objetos: list[Foo] = []
+
+lista_preenchida: list[int] = [1, 2, 3, 4, 5]
+lista_preenchida_objetos: list[Foo] = [Foo(1), Foo(2), Foo(3), Foo(4), Foo(5)]
+
+print(len(lista_vazia))
+print(len(lista_preenchida))
+
+lista_vazia.append(10)
+lista_preenchida.append(6)
+lista_preenchida_objetos.append(Foo(6))
+
+lista_vazia.pop()
+lista_preenchida.pop()
+lista_preenchida_objetos.pop()
+
+lista_vazia.insert(0, 0)
+lista_preenchida.insert(0, 0)
+lista_preenchida_objetos.insert(0, Foo(0))
+
+lista_vazia.pop(0)
+lista_preenchida.pop(0)
+lista_preenchida_objetos.pop(0)
+
+lista_preenchida.insert(2, 99)
+lista_preenchida.pop(2)
+
+print(", ".join(map(str, lista_preenchida)))
+
+sequencia = list(range(5))
+print(sequencia)
+
+aleatorios = [random.randint(1, 10) for _ in range(5)]
+print(aleatorios)
+
+print(lista_preenchida[2])
+
+for item in lista_preenchida:
+    print(item)
+
+for i in range(len(lista_preenchida)):
+    print(lista_preenchida[i])
+
+procurado = 3
+encontrado = False
+for item in lista_preenchida:
+    if item == procurado:
+        encontrado = True
+        break
+print(encontrado)
+
+print(procurado in lista_preenchida)
+
+pares = [x for x in lista_preenchida if x % 2 == 0]
+print(pares)
+
+quadrados = [x ** 2 for x in lista_preenchida]
+print(quadrados)
+
+if procurado in lista_preenchida:
+    lista_preenchida.remove(procurado)
+print(lista_preenchida)
+
+lista_com_repetidos = [1, 2, 2, 3, 2, 4]
+lista_com_repetidos = [x for x in lista_com_repetidos if x != 2]
+print(lista_com_repetidos)
+
+lista_preenchida.sort()
+print(lista_preenchida)
+
+random.shuffle(lista_preenchida)
+print(lista_preenchida)

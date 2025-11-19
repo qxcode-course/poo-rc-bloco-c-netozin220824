@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2025-11-19_05-55-49",
+            "content": "@@ -392,227 +392,4 @@\n ne%7D%22\n-%0Aclass Cinema:%0A    def __init__(self,capacidade:int):%0A        self.__seats= %5BNone%5D*capacidade%0A        self.__search= %5BNone%5D*capacidade%0A        self.__verifyindex=capacidade%0A    def__str_(self):%0A    print(%22%5B%22,end=%22%22)%0A    %5D%22)\n",
+            "lines": "14"
+        },
+        {
+            "label": "2025-11-19_06-01-47",
+            "content": "class Client:\n    def __init__(self,id:str ,phone:int):\n        self.__id:str = id\n        self.__phone:int = phone\n    def getPhone(self):\n        return self.__phone\n    def getid(self):\n        return self.__id\n    def setPhone(self,phone:int):\n        self.__phone = phone\n    def setid(self,id:str):\n        self.__id = id\n    def __str__(self):\n        return f\"{self.__id}:{self.__phone}\"\nclass Cinema:\n    def __init__(self,capacidade:int):\n        self.__seats= [None]*capacidade\n        self.__search= [None]*capacidade\n        self.__verifyindex=capacidade\n    def__str_(self):\n    print(\"[\",end=\"\")\n    ]\")",
+            "lines": "22"
+        }
+    ]
+}
